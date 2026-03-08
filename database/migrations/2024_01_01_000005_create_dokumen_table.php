@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
     public function up(): void {
-        Schema::create('dokumen', function (Blueprint $table) {
+        if (Schema::hasTable('dokumen')) return; Schema::create('dokumen', function (Blueprint $table) {
             $table->id();
             $table->string('nama_dokumen', 255);
             $table->string('kategori', 100);

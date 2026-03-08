@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
     public function up(): void {
-        Schema::create('users', function (Blueprint $table) {
+        if (Schema::hasTable('users')) return; Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('username', 50)->unique();
             $table->string('password', 255);

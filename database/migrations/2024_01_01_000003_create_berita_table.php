@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
     public function up(): void {
-        Schema::create('berita', function (Blueprint $table) {
+        if (Schema::hasTable('berita')) return; Schema::create('berita', function (Blueprint $table) {
             $table->id();
             $table->string('judul', 255);
             $table->longText('isi');
